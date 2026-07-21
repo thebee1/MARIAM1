@@ -1,0 +1,86 @@
+{
+  "profil": {
+    "nom": "Zanblé Lou Mariam",
+    "titre": "Étudiante en Communication Visuelle — 2ème année",
+    "bio": "Passionnée par le design graphique, la photographie et la direction artistique. J'explore les frontières entre image, typographie et espace pour raconter des histoires visuelles uniques.",
+    "email": "zambleloumariam2@gmail.com",
+    "telephone": "0713733677",
+    "localisation": "Abidjan, Côte d'Ivoire",
+    "photo": "profil.png",
+    "social": {
+      "instagram": "https://instagram.com/zanblelou",
+      "behance": "https://behance.net/zanblelou",
+      "linkedin": "https://www.linkedin.com/in/lou-mariam-zamble-372282416/",
+      "dribbble": "https://dribbble.com/zanblelou",
+      "tiktok": "https://www.tiktok.com/@rachelglorieuse"
+    }
+  },
+  "competences": [
+    "Direction Artistique",
+    "Photographie",
+    "Motion Design",
+    "Identité Visuelle",
+    "UI/UX Design",
+    "Illustration",
+    "Typographie",
+    "Montage Vidéo",
+    "Branding"
+  ],
+  "projets": [
+    {
+      "id": 1,
+      "titre": "Super Panini — Chez EMI",
+      "categorie": "Branding Food",
+      "annee": "2025",
+      "description": "Affiche promotionnelle pour un restaurant de paninis à Yopougon Micão. Design coloré et appétissant mettant en valeur le produit avec un fond jaune énergique et des éléments visuels dynamiques.",
+      "miniature": "projet 1.jpg",
+      "medias": [
+        { "type": "image", "src": "projet 1.jpg", "legende": "Affiche principale Super Panini" }
+      ]
+    },
+    {
+      "id": 2,
+      "titre": "Manger Bio — Chez Maman",
+      "categorie": "Affiche Restaurant",
+      "annee": "2025",
+      "description": "Affiche pour un restaurant bio proposant une cuisine variée : poulet rôti, salades fraîches, brochettes et frites. Design épuré avec QR code pour contact direct.",
+      "miniature": "projet 2.jpg",
+      "medias": [
+        { "type": "image", "src": "projet 2.jpg", "legende": "Affiche Manger Bio Chez Maman" }
+      ]
+    },
+    {
+      "id": 3,
+      "titre": "Mangez Bio — Restaurant Franco-Africain",
+      "categorie": "Flyer Restaurant",
+      "annee": "2025",
+      "description": "Flyer pour un restaurant franco-africain à Cocody Riviera 2. Mise en avant de plats à emporter et de la fusion des saveurs, de l'élégance et de l'authenticité.",
+      "miniature": "projet 3.jpg",
+      "medias": [
+        { "type": "image", "src": "projet 3.jpg", "legende": "Flyer Mangez Bio — Cocody" }
+      ]
+    },
+    {
+      "id": 4,
+      "titre": "URBNLUXE — Bijoux & Accessoires",
+      "categorie": "Affiche Luxe",
+      "annee": "2025",
+      "description": "Affiche pour une boutique de bijoux et accessoires de luxe abordables. Parfums, gloss, bracelets, bijoux en or, diamant et argent. Design élégant sur fond noir avec accents dorés.",
+      "miniature": "projet 4.png",
+      "medias": [
+        { "type": "image", "src": "projet 4.png", "legende": "Affiche URBNLUXE — Luxury in every detail" }
+      ]
+    },
+    {
+      "id": 5,
+      "titre": "Joyeux Pâques — Culte de Gloire",
+      "categorie": "Affiche Événementielle",
+      "annee": "2026",
+      "description": "Affiche pour un culte de gloire de Pâques à l'Église du Dieu Glorieux (GGC Yopougon). Thème 'Secret de Bénédiction' avec un design spirituel et solennel.",
+      "miniature": "projet 5.png",
+      "medias": [
+        { "type": "image", "src": "projet 5.png", "legende": "Affiche Joyeux Pâques — Culte de Gloire" }
+      ]
+    }
+  ]
+}
