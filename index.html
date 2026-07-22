@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zanblé Lou Mariam — Portfolio Communication Visuelle</title>
+    <link rel="icon" type="image/png" href="logo1.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
@@ -78,14 +79,18 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--blanc);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            letter-spacing: -0.5px;
+            height: 56px;
         }
-        .logo span { color: var(--accent); }
+        .logo img {
+            max-height: 100%;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
 
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .menu-toggle {
@@ -717,7 +722,9 @@
 
     <!-- Navigation -->
     <nav id="navbar">
-        <a href="#" class="logo">Zanblé<span>.</span></a>
+        <a href="#" class="logo" aria-label="Accueil">
+            <img src="logo.png" alt="Logo Zanblé Lou Mariam">
+        </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">☰</button>
         <ul class="nav-links" id="nav-links">
             <li><a href="#accueil">Accueil</a></li>
