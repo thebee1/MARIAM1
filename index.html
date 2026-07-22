@@ -21,11 +21,38 @@
         html { scroll-behavior: smooth; }
 
         body {
+            position: relative;
             font-family: 'Inter', sans-serif;
-            background-color: var(--noir);
+            background:
+                radial-gradient(circle at top left, rgba(201, 169, 110, 0.12), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.06), transparent 30%),
+                var(--noir);
             color: var(--blanc);
             line-height: 1.6;
             overflow-x: hidden;
+            isolation: isolate;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: url('logo.png') center center / 45% auto no-repeat;
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.06), transparent 15%),
+                radial-gradient(circle at 85% 80%, rgba(201, 169, 110, 0.08), transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(12px);
         }
 
         /* Navigation */
@@ -38,12 +65,17 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.22);
             transition: all 0.3s ease;
         }
-        nav.scrolled { padding: 1rem 4rem; background: rgba(10, 10, 10, 0.98); }
+        nav.scrolled {
+            padding: 1rem 4rem;
+            background: rgba(16, 16, 16, 0.82);
+        }
 
         .logo {
             font-family: 'Playfair Display', serif;
@@ -176,13 +208,17 @@
             box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
         }
         .btn-secondary {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.05);
             color: var(--blanc);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
         }
         .btn-secondary:hover {
-            border-color: var(--blanc);
-            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
         }
 
         .hero-image {
@@ -193,6 +229,11 @@
             width: 400px; height: 500px;
             border-radius: 20px;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
             animation: fadeIn 1s ease 0.5s both;
         }
         .hero-image img {
@@ -243,12 +284,15 @@
             gap: 2rem;
         }
         .projet-card {
-            background: var(--gris-fonce);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 15px 40px rgba(0, 0, 0, 0.22);
         }
         .projet-card:hover {
             transform: translateY(-10px);
@@ -300,7 +344,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .projet-annee { color: var(--gris); font-size: 0.8rem; }
         .projet-titre {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
@@ -308,6 +351,50 @@
             margin-bottom: 0.5rem;
         }
         .projet-desc { color: var(--gris); font-size: 0.9rem; line-height: 1.5; }
+
+        /* Services & stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat-card, .service-card, .process-card {
+            background: var(--gris-fonce);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+        }
+        .stat-card strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+        .stat-card span, .service-card p, .process-card p {
+            color: var(--gris);
+        }
+        .services-grid, .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .service-card h3, .process-card h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+        .service-card .service-icon, .process-card .process-icon {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
 
         /* Modal */
         .modal {
@@ -534,6 +621,7 @@
         @media (max-width: 1024px) {
             .about-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             nav {
@@ -634,6 +722,8 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#projets">Projets</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#processus">Processus</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -642,7 +732,6 @@
     <!-- Hero -->
     <section class="hero" id="accueil">
         <div class="hero-content">
-            <span class="hero-tag">Portfolio 2025</span>
             <h1>Zanblé Lou <em>Mariam</em></h1>
             <p id="hero-desc">Étudiante en Communication Visuelle passionnée par le design graphique, la photographie et la direction artistique.</p>
             <div class="hero-buttons">
@@ -663,6 +752,43 @@
             <p class="section-subtitle">Découvrez une sélection de mes travaux en communication visuelle, design et branding.</p>
         </div>
         <div class="projets-grid" id="projets-grid"></div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="section-header reveal">
+            <span class="section-tag">Services</span>
+            <h2 class="section-title">Ce que je peux vous offrir</h2>
+            <p class="section-subtitle">Des solutions visuelles créatives, claires et adaptées à votre image de marque.</p>
+        </div>
+        <div class="stats-grid reveal" id="stats-grid"></div>
+        <div class="services-grid reveal" id="services-grid"></div>
+    </section>
+
+    <!-- Processus -->
+    <section id="processus">
+        <div class="section-header reveal">
+            <span class="section-tag">Méthode</span>
+            <h2 class="section-title">Mon processus de travail</h2>
+            <p class="section-subtitle">Un accompagnement simple, structuré et orienté résultat pour transformer une idée en visuel impactant.</p>
+        </div>
+        <div class="process-grid reveal">
+            <div class="process-card">
+                <div class="process-icon">01</div>
+                <h3>Analyse de besoin</h3>
+                <p>Je comprends votre message, votre cible et les objectifs de communication avant de créer.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-icon">02</div>
+                <h3>Création visuelle</h3>
+                <p>Je développe une direction artistique cohérente avec des visuels élégants et mémorables.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-icon">03</div>
+                <h3>Livraison & ajustements</h3>
+                <p>Je finalise le projet avec une présentation propre et des retouches si nécessaire.</p>
+            </div>
+        </div>
     </section>
 
     <!-- À propos -->
@@ -741,6 +867,28 @@
                 "Typographie",
                 "Montage Vidéo",
                 "Branding"
+            ],
+            "stats": [
+                { "label": "Projets créés", "value": "05+" },
+                { "label": "Compétences", "value": "09" },
+                { "label": "Disponibilité", "value": "2026" }
+            ],
+            "services": [
+                {
+                    "titre": "Identité visuelle",
+                    "description": "Création de logos, palettes, charte graphique et supports de marque cohérents.",
+                    "icon": "✦"
+                },
+                {
+                    "titre": "Affiches & flyers",
+                    "description": "Conception de supports promotionnels élégants, lisibles et mémorables.",
+                    "icon": "▣"
+                },
+                {
+                    "titre": "Branding digital",
+                    "description": "Mise en scène visuelle pour réseaux sociaux, contenus et campagnes publicitaires.",
+                    "icon": "◎"
+                }
             ],
             "projets": [
                 {
@@ -824,6 +972,23 @@
                 `<span class="competence-tag">${comp}</span>`
             ).join('');
 
+            const statsGrid = document.getElementById('stats-grid');
+            statsGrid.innerHTML = (portfolioData.stats || []).map(stat => `
+                <div class="stat-card reveal">
+                    <strong>${stat.value}</strong>
+                    <span>${stat.label}</span>
+                </div>
+            `).join('');
+
+            const servicesGrid = document.getElementById('services-grid');
+            servicesGrid.innerHTML = (portfolioData.services || []).map(service => `
+                <div class="service-card reveal">
+                    <div class="service-icon">${service.icon || '✦'}</div>
+                    <h3>${service.titre}</h3>
+                    <p>${service.description}</p>
+                </div>
+            `).join('');
+
             const contactGrid = document.getElementById('contact-grid');
             contactGrid.innerHTML = `
                 <div class="contact-item">
@@ -861,7 +1026,6 @@
                     <div class="projet-info">
                         <div class="projet-meta">
                             <span class="projet-categorie">${projet.categorie}</span>
-                            <span class="projet-annee">${projet.annee}</span>
                         </div>
                         <h3 class="projet-titre">${projet.titre}</h3>
                         <p class="projet-desc">${projet.description}</p>
@@ -875,7 +1039,7 @@
         function ouvrirModal(projetId) {
             const projet = portfolioData.projets.find(p => p.id === projetId);
             if (!projet) return;
-            document.getElementById('modal-categorie').textContent = `${projet.categorie} — ${projet.annee}`;
+            document.getElementById('modal-categorie').textContent = `${projet.categorie}`;
             document.getElementById('modal-titre').textContent = projet.titre;
             document.getElementById('modal-desc').textContent = projet.description;
             const mediaGrid = document.getElementById('modal-media');
