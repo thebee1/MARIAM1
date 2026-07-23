@@ -84,15 +84,22 @@
             justify-content: center;
             text-decoration: none;
             height: 56px;
+            margin-right: auto;
         }
         .logo img {
             max-height: 100%;
             width: auto;
             display: block;
             object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(201, 169, 110, 0.18));
         }
 
-        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin-left: auto;
+        }
         .menu-toggle {
             display: none;
             width: 42px; height: 42px;
@@ -634,7 +641,11 @@
                 flex-wrap: wrap;
                 gap: 0.8rem;
             }
-            .menu-toggle { display: inline-flex; }
+            .logo {
+                height: 44px;
+                order: 1;
+            }
+            .menu-toggle { display: inline-flex; order: 2; margin-left: auto; }
             .nav-links {
                 width: 100%;
                 display: none;
@@ -644,6 +655,8 @@
                 background: rgba(26, 26, 26, 0.98);
                 border-radius: 14px;
                 border: 1px solid rgba(255, 255, 255, 0.08);
+                margin-left: 0;
+                order: 3;
             }
             .nav-links.open { display: flex; }
             .hero {
@@ -722,6 +735,9 @@
 
     <!-- Navigation -->
     <nav id="navbar">
+        <a class="logo" href="#accueil" aria-label="Retour à l'accueil">
+            <img src="logo1.png" alt="Zamblé Lou Mariam logo">
+        </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">☰</button>
         <ul class="nav-links" id="nav-links">
             <li><a href="#accueil">Accueil</a></li>
