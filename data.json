@@ -81,6 +81,17 @@
       "medias": [
         { "type": "image", "src": "projet 5.png", "legende": "Affiche Joyeux Pâques — Culte de Gloire" }
       ]
+    },
+    {
+      "id": 6,
+      "titre": "Conseil et solutions IA",
+      "categorie": "IA & Conseil",
+      "annee": "2026",
+      "description": "Conception visuelle pour une offre de conseil en intelligence artificielle : audit et évaluation, chatbots, automatisation et solutions sur mesure pour entreprises et structures.",
+      "miniature": "projet 6.png",
+      "medias": [
+        { "type": "image", "src": "projet 6.png", "legende": "Conseil et solutions IA" }
+      ]
     }
   ]
 }
